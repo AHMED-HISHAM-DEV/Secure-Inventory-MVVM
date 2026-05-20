@@ -7,25 +7,28 @@ CyberStock is an advanced, high-performance Inventory and Warehouse Management S
 
 The application strictly implements the **MVVM (Model-View-ViewModel)** design pattern utilizing the modern Microsoft Community Toolkit. This guarantees complete **Separation of Concerns (SoC)** between the UI presentation layer and the underlying backend logic.
 
+
+```text
 ┌────────────────────────────────────────────────────────┐
 │                      VIEW (XAML)                       │
 └──────────────────────────▲─────────────────────────────┘
-│ Data Binding & Commands
+                           │ Data Binding & Commands
 ┌──────────────────────────▼─────────────────────────────┘
 │                   VIEWMODEL (C# Class)                 │
 └──────────────────────────▲─────────────────────────────┘
-│ Async Method Calls
+                           │ Async Method Calls
 ┌──────────────────────────▼─────────────────────────────┘
 │               SERVICES / REPOSITORIES                  │
 └──────────────────────────▲─────────────────────────────┘
-│ ORM Queries (LINQ)
+                           │ ORM Queries (LINQ)
 ┌──────────────────────────▼─────────────────────────────┘
 │                 DATA LAYER (EF Core)                   │
 └──────────────────────────▲─────────────────────────────┘
-│ Parameterized SQL
+                           │ Parameterized SQL
 ┌──────────────────────────▼─────────────────────────────┘
 │                   SQLITE DATABASE                      │
 └────────────────────────────────────────────────────────┘
+```
 
 * **View:** Implements custom design systems, neon styles, and UI value converters (`NullToVisibilityConverter`) to deliver an adaptive user interface.
 * **ViewModel:** The command center of the application. It manages background asynchronous operations, thread synchronization via the UI Dispatcher, and automatic property notifications.
