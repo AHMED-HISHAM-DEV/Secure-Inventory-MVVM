@@ -1,9 +1,9 @@
-# 🛡️ CyberStock - Enterprise Inventory & Warehouse Management System
+#  CyberStock - Enterprise Inventory & Warehouse Management System
 
 CyberStock is an advanced, high-performance Inventory and Warehouse Management System designed with a futuristic neon-pixel interface. Built using modern desktop engineering patterns and integrated with robust cybersecurity controls, it provides real-time tracking, dual-method auditing, and highly secure data integrity.
 
 
-## 🚀 Architectural Design
+##  Architectural Design
 
 The application strictly implements the **MVVM (Model-View-ViewModel)** design pattern utilizing the modern Microsoft Community Toolkit. This guarantees complete **Separation of Concerns (SoC)** between the UI presentation layer and the underlying backend logic.
 
@@ -37,7 +37,7 @@ The application strictly implements the **MVVM (Model-View-ViewModel)** design p
 
 ---
 
-## 🛠️ Production Tech Stack
+##  Production Tech Stack
 
 * **Presentation Framework:** WPF (.NET 8.0)
 * **MVVM Framework:** CommunityToolkit.Mvvm (Source Generators)
@@ -47,7 +47,7 @@ The application strictly implements the **MVVM (Model-View-ViewModel)** design p
 
 ---
 
-## 🛡️ Core Features & Cyber Security Hardening
+##  Core Features & Cyber Security Hardening
 
 ### 1. Cryptographic Identity Protection
 User authentication bypasses standard plaintext pitfalls by forcing all storage to undergo **BCrypt adaptive hashing**. Administrative default seeds (`root`) are securely hashed during database creation, completely mitigating credential dumping attacks.
