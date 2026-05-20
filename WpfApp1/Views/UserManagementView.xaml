@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="WpfApp1.Views.UserManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfApp1.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:UserManagementViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource CyberCard}" Padding="15" Margin="0,0,0,20">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="5">
+                    <TextBlock Text="NEW_OPERATOR_ID" Style="{StaticResource CyberText}" FontSize="10"/>
+                    <TextBox Text="{Binding NewUsername}" Width="150" Background="#111" Foreground="Cyan" BorderBrush="Cyan"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="ACCESS_KEY" Style="{StaticResource CyberText}" FontSize="10"/>
+                    <TextBox Text="{Binding NewPassword}" Width="150" Background="#111" Foreground="Cyan" BorderBrush="Cyan"/>
+                </StackPanel>
+                <Button Content="CREATE_IDENTITY" Command="{Binding AddUserCommand}" 
+                        Style="{StaticResource CyberButton}" Margin="20,15,0,0" VerticalAlignment="Bottom"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Users}" AutoGenerateColumns="False" 
+                  Background="Transparent" Foreground="White" BorderThickness="0" 
+                  RowBackground="#151515" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="OPERATOR_ID" Binding="{Binding Username}" Width="*"/>
+                <DataGridTextColumn Header="ROLE" Binding="{Binding Role}" Width="150"/>
+                <DataGridTemplateColumn Header="SECURITY_ACTIONS" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="REVOKE" Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                    CommandParameter="{Binding}" Style="{StaticResource CyberButton}" 
+                                    Foreground="Red" BorderBrush="Red" FontSize="10"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
